@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-slate-50 w-full">
+  <!-- Top Navigation (Consistent with Dashboard) -->
+  <nav class="w-full bg-white border-b border-slate-200">
+    <div class="w-full px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <div class="bg-indigo-600 p-2 rounded-lg text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        </div>
+        <h1 class="text-xl font-black text-slate-900 tracking-tight">
+          <%= @expense.new_record? ? "Create New" : "Edit Record" %>
+        </h1>
+      </div>
+      <%= link_to expenses_path, class: "text-sm font-bold text-slate-500 hover:text-indigo-600 flex items-center gap-2 group" do %>
+        <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Back to Dashboard
+      <% end %>
+    </div>
+  </nav>
+
+  <div class="w-full flex justify-center py-12 px-6">
+    <div class="w-full max-w-2xl">
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-slate-900 tracking-tight mb-2">
+          <%= @expense.new_record? ? "New Expense" : "Edit Expense" %>
+        </h1>
+        <p class="text-slate-500 font-medium">Record your spending details below to update your dashboard.</p>
+      </div>
+
+      <!-- Render the Form Partial -->
+      <%= render "form", expense: @expense %>
+      
+      <p class="mt-8 text-center text-slate-400 text-xs font-bold uppercase tracking-widest">
+        Secure Transaction Logging
+      </p>
+    </div>
+  </div>
+</div>
